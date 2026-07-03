@@ -1245,5 +1245,28 @@
     <script>
         lucide.createIcons();
     </script>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        // Apply saved theme on load
+        (function() {
+            const saved = localStorage.getItem('theme') || 'dark';
+            if (saved === 'light') {
+                document.documentElement.classList.add('light');
+            }
+        })();
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isLight = html.classList.toggle('light');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+
+            // Animate transition
+            html.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+            setTimeout(() => {
+                html.style.transition = '';
+            }, 300);
+        }
+    </script>
 </body>
 </html>
