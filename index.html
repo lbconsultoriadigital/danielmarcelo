@@ -87,9 +87,11 @@
             --card-bg: rgba(232, 228, 222, 0.85);
             --scroll-track: #e8e4de;
             --hero-overlay-from: rgba(248, 246, 242, 0.1);
-            --hero-overlay-to: rgba(248, 246, 242, 0.85);
+            --hero-overlay-to: rgba(248, 246, 242, 0.95);
         }
         * { scroll-behavior: smooth; }
+        .hero-bg-img { opacity: 0.4; }
+        .light .hero-bg-img { opacity: 0.7; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--scroll-track); }
         ::-webkit-scrollbar-thumb { background: #d4a853; border-radius: 3px; }
@@ -304,7 +306,7 @@
     <section class="relative min-h-screen flex items-center pt-32 overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-            <img src="daniel-podium.jpg" alt="Daniel Marcelo - Pódio Madrid Open IBJJF" class="w-full h-full object-cover opacity-40 scale-105">
+            <img src="daniel-podium.jpg" alt="Daniel Marcelo - Pódio Madrid Open IBJJF" class="w-full h-full object-cover hero-bg-img scale-105">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
@@ -1262,7 +1264,7 @@
     <script>
         // Apply saved theme on load
         (function() {
-            const saved = localStorage.getItem('theme') || 'dark';
+            const saved = localStorage.getItem('theme') || 'light';
             if (saved === 'light') {
                 document.documentElement.classList.add('light');
             }
