@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Marcelo | Jiu-Jitsu Elite & Consultoria Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200..900&family=Syne:wght@400..800&display=swap');
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',
+                            dark: '#121212',
+                            card: '#1a1a1a',
+                            gold: '#d4a853',
+                            'gold-light': '#e8c46a',
+                            'gold-dark': '#b8923e',
+                            amber: '#f59e0b',
+                        }
+                    },
+                    animation: {
+                        'pulse-gold': 'pulse-gold 3s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 3s ease-in-out infinite alternate',
+                        'slide-up': 'slide-up 0.8s ease-out',
+                    },
+                    keyframes: {
+                        'pulse-gold': {
+                            '0%, 100%': { opacity: '0.6' },
+                            '50%': { opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(212, 168, 83, 0.1)' },
+                            '100%': { boxShadow: '0 0 40px rgba(212, 168, 83, 0.25)' },
+                        },
+                        'slide-up': {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #121212;
+            --bg-card: #1a1a1a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border-glass: rgba(212, 168, 83, 0.08);
+            --glass-bg: rgba(18, 18, 18, 0.85);
+            --card-bg: rgba(26, 26, 26, 0.8);
+            --scroll-track: #0a0a0a;
+            --hero-overlay-from: rgba(10,10,10,0.3);
+            --hero-overlay-to: rgba(10,10,10,0.85);
+        }
+        .light {
+            --bg-primary: #f8f6f2;
+            --bg-secondary: #f0ede8;
+            --bg-card: #e8e4de;
+            --text-primary: #1a1a1a;
+            --text-secondary: #52525b;
+            --text-muted: #a1a1aa;
+            --border-glass: rgba(212, 168, 83, 0.15);
+            --glass-bg: rgba(248, 246, 242, 0.9);
+            --card-bg: rgba(232, 228, 222, 0.85);
+            --scroll-track: #e8e4de;
+            --hero-overlay-from: rgba(248, 246, 242, 0.1);
+            --hero-overlay-to: rgba(248, 246, 242, 0.85);
+        }
+        * { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--scroll-track); }
+        ::-webkit-scrollbar-thumb { background: #d4a853; border-radius: 3px; }
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+        }
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 168, 83, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(212, 168, 83, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px -15px rgba(212, 168, 83, 0.1);
+        }
+        .gold-glow {
+            box-shadow: 0 0 30px rgba(212, 168, 83, 0.15);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #d4a853 0%, #e8c46a 50%, #b8923e 100%);
+        }
+        .gold-text {
+            background: linear-gradient(135deg, #d4a853, #e8c46a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .image-glow {
+            box-shadow: 0 0 40px rgba(212, 168, 83, 0.08);
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, var(--hero-overlay-from) 0%, var(--hero-overlay-to) 100%);
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, #d4a853, #e8c46a);
+            color: #0a0a0a;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(212, 168, 83, 0.3);
+        }
+        .btn-outline-gold {
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            color: #d4a853;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-gold:hover {
+            background: rgba(212, 168, 83, 0.1);
+            border-color: rgba(212, 168, 83, 0.5);
+        }
+        [x-cloak] { display: none !important; }
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: #d4a853;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(212, 168, 83, 0.3);
+        }
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(to bottom, #d4a853, transparent);
+        }
+        .theme-toggle-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+            background: transparent;
+            color: #d4a853;
+        }
+        .theme-toggle-btn:hover {
+            background: rgba(212, 168, 83, 0.1);
+            border-color: rgba(212, 168, 83, 0.4);
+        }
+        .theme-toggle-btn .icon-sun { display: none; }
+        .theme-toggle-btn .icon-moon { display: block; }
+        .light .theme-toggle-btn .icon-sun { display: block; }
+        .light .theme-toggle-btn .icon-moon { display: none; }
+        .light body, body.light {
+            background-color: var(--bg-primary) !important;
+            color: var(--text-primary) !important;
+        }
+    </style>
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans antialiased overflow-x-hidden">
+
+    <!-- Background Glows -->
+    <div class="fixed top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/5 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse-gold"></div>
+    <div class="fixed bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-amber/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-gold/3 rounded-full blur-[200px] pointer-events-none -z-10"></div>
+
+    <!-- ============================== -->
+    <!-- TOP SPONSOR BANNER - CULTURE   -->
+    <!-- ============================== -->
+    <div class="bg-gradient-to-r from-brand-gold/10 via-brand-gold/5 to-brand-gold/10 border-b border-brand-gold/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-3 py-2.5 text-[10px] uppercase tracking-[0.15em]">
+                <span class="text-zinc-500 font-bold">🏆 Patrocinador Oficial</span>
+                <span class="hidden md:inline text-zinc-700">·</span>
+                <a href="https://cultureartesuave.com/" target="_blank" class="text-brand-gold hover:text-brand-gold-light font-bold transition-colors flex items-center gap-1.5">
+                    <img src="culture-logo.jpg" alt="Culture" class="w-5 h-5 rounded object-cover">
+                    Culture • Arte Suave
+                </a>
+                <span class="hidden md:inline text-zinc-700">·</span>
+                <a href="https://cultureartesuave.com/" target="_blank" class="text-zinc-500 hover:text-brand-gold transition-colors">Premium BJJ Gear</a>
+                <span class="hidden md:inline text-zinc-700">·</span>
+                <a href="https://wa.me/5500000000000?text=Quero%20saber%20mais%20sobre%20a%20Culture%20Arte%20Suave" class="text-zinc-500 hover:text-brand-gold transition-colors underline underline-offset-2">Consultar →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- NAVBAR                          -->
+    <!-- ============================== -->
+    <header class="fixed top-10 w-full z-50 glass border-b border-brand-gold/10" x-data="{ mobileMenu: false }">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center font-bold shadow-lg shadow-brand-gold/20 group-hover:scale-105 transition-all">
+                    <span class="text-brand-black text-lg font-display">DM</span>
+                </div>
+                <div>
+                    <span class="font-display text-xl font-bold tracking-tight gold-text">DANIEL MARCELO</span>
+                    <span class="block text-[9px] uppercase tracking-[0.2em] text-brand-gold font-bold -mt-1">Jiu-Jitsu Elite</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                <a href="#trajetoria" class="hover:text-brand-gold transition-colors">Trajetória</a>
+                <a href="#metodologia" class="hover:text-brand-gold transition-colors">Metodologia</a>
+                <a href="#servicos" class="hover:text-brand-gold transition-colors">Serviços</a>
+                <a href="#depoimentos" class="hover:text-brand-gold transition-colors">Resultados</a>
+                <a href="#planos" class="hover:text-brand-gold transition-colors">Planos</a>
+            </nav>
+
+            <!-- CTA -->
+            <div class="hidden md:flex items-center gap-3">
+                <!-- Theme Toggle -->
+                <button onclick="toggleTheme()" class="theme-toggle-btn" aria-label="Alternar tema">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <a href="https://www.instagram.com/dan.jiujitsu/" target="_blank" class="px-4 py-2 rounded-xl btn-outline-gold text-xs font-semibold flex items-center gap-2">
+                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                    @dan.jiujitsu
+                </a>
+                <a href="https://wa.me/5500000000000?text=Quero%20transformar%20meu%20corpo%20com%20Daniel%20Marcelo" class="px-5 py-2.5 rounded-xl btn-gold text-xs flex items-center gap-2">
+                    <i data-lucide="whatsapp" class="w-4 h-4"></i>
+                    Fale Comigo
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <div class="md:hidden flex items-center gap-2">
+                <!-- Theme Toggle Mobile -->
+                <button onclick="toggleTheme()" class="theme-toggle-btn !w-9 !h-9" aria-label="Alternar tema">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <button @click="mobileMenu = !mobileMenu" class="text-zinc-300 hover:text-brand-gold transition-colors">
+                <i data-lucide="menu" class="w-6 h-6" x-show="!mobileMenu"></i>
+                <i data-lucide="x" class="w-6 h-6" x-show="mobileMenu" x-cloak></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-transition x-cloak class="md:hidden glass border-t border-brand-gold/10 py-6 px-6 flex flex-col gap-4 absolute w-full left-0 shadow-2xl">
+            <a @click="mobileMenu = false" href="#trajetoria" class="text-lg py-2 border-b border-brand-gold/10 text-zinc-300 hover:text-brand-gold transition-colors">Trajetória</a>
+            <a @click="mobileMenu = false" href="#metodologia" class="text-lg py-2 border-b border-brand-gold/10 text-zinc-300 hover:text-brand-gold transition-colors">Metodologia</a>
+            <a @click="mobileMenu = false" href="#servicos" class="text-lg py-2 border-b border-brand-gold/10 text-zinc-300 hover:text-brand-gold transition-colors">Serviços</a>
+            <a @click="mobileMenu = false" href="#depoimentos" class="text-lg py-2 border-b border-brand-gold/10 text-zinc-300 hover:text-brand-gold transition-colors">Resultados</a>
+            <a @click="mobileMenu = false" href="#planos" class="text-lg py-2 text-zinc-300 hover:text-brand-gold transition-colors">Planos</a>
+            <div class="flex flex-col gap-3 mt-4">
+                <a @click="mobileMenu = false" href="https://www.instagram.com/dan.jiujitsu/" target="_blank" class="w-full text-center py-3 rounded-xl btn-outline-gold font-semibold text-sm">
+                    Instagram @dan.jiujitsu
+                </a>
+                <a @click="mobileMenu = false" href="https://wa.me/5500000000000?text=Quero%20transformar%20meu%20corpo%20com%20Daniel%20Marcelo" class="w-full text-center py-3 rounded-xl btn-gold text-sm">
+                    Fale Comigo no WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================== -->
+    <!-- HERO SECTION                   -->
+    <!-- ============================== -->
+    <section class="relative min-h-screen flex items-center pt-32 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="daniel-podium.jpg" alt="Daniel Marcelo - Pódio Madrid Open IBJJF" class="w-full h-full object-cover opacity-40 scale-105">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="space-y-8 animate-slide-up">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-brand-gold/20 text-brand-gold text-xs font-bold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+                        Campeão Madrid Open IBJJF 2026 🥉
+                    </div>
+
+                    <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight">
+                        Forje seu <span class="gold-text">legado</span> no<br>
+                        <span class="gold-text">Jiu-Jitsu</span> de elite.
+                    </h1>
+
+                    <p class="text-zinc-400 text-lg sm:text-xl font-light max-w-xl leading-relaxed">
+                        Consultoria premium de treinos + plano nutricional inteligente. 
+                        O método que me levou ao pódio em Madrid, agora ao seu alcance.
+                    </p>
+
+                    <!-- CTA -->
+                    <div class="flex flex-col sm:flex-row items-start gap-4">
+                        <a href="#planos" class="w-full sm:w-auto px-8 py-4 rounded-2xl btn-gold text-sm font-bold flex items-center justify-center gap-2 shadow-xl shadow-brand-gold/20">
+                            Começar Minha Transformação
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#trajetoria" class="w-full sm:w-auto px-8 py-4 rounded-2xl glass hover:bg-brand-card text-zinc-300 font-semibold transition-all flex items-center justify-center gap-2">
+                            Conhecer Minha História
+                        </a>
+                    </div>
+
+                    <!-- Stats + Sponsor -->
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-brand-gold/10 max-w-md">
+                        <div>
+                            <div class="text-2xl font-bold gold-text font-display">10+</div>
+                            <div class="text-xs text-zinc-500">Anos de Jiu-Jitsu</div>
+                        </div>
+                        <div class="border-x border-brand-gold/10 px-6">
+                            <div class="text-2xl font-bold gold-text font-display">IBJJF</div>
+                            <div class="text-xs text-zinc-500">Madrid Open 2026</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold gold-text font-display">Alliance</div>
+                            <div class="text-xs text-zinc-500">Equipe Profissional</div>
+                        </div>
+                    </div>
+
+                    <!-- Sponsor Badge - First Page -->
+                    <div class="pt-2">
+                        <a href="https://cultureartesuave.com/" target="_blank" class="group flex items-center gap-3 px-4 py-2.5 rounded-xl glass border border-brand-gold/15 hover:border-brand-gold/40 transition-all hover:bg-brand-gold/5 hover:shadow-lg hover:shadow-brand-gold/5 w-fit">
+                            <div class="w-8 h-8 rounded-lg overflow-hidden group-hover:scale-110 transition-transform shadow-md shadow-brand-gold/20 ring-1 ring-brand-gold/20">
+                                <img src="culture-logo.jpg" alt="Culture" class="w-full h-full object-cover">
+                            </div>
+                            <div class="text-left">
+                                <span class="text-xs font-bold text-zinc-300 group-hover:text-brand-gold transition-colors">Culture • Arte Suave</span>
+                                <span class="block text-[8px] uppercase tracking-widest text-zinc-600">Patrocinador Oficial</span>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-zinc-600 group-hover:text-brand-gold transition-colors"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Profile Image -->
+                <div class="hidden lg:flex justify-center">
+                    <div class="relative">
+                        <div class="w-80 h-80 rounded-full overflow-hidden border-2 border-brand-gold/30 shadow-2xl gold-glow">
+                            <img src="daniel-alliance.jpg" alt="Daniel Marcelo" class="w-full h-full object-cover">
+                        </div>
+                        <!-- Decorative rings -->
+                        <div class="absolute -top-4 -left-4 w-88 h-88 rounded-full border border-brand-gold/10 animate-float"></div>
+                        <div class="absolute -bottom-2 -right-2 w-72 h-72 rounded-full border border-brand-gold/5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-600 animate-float">
+            <span class="text-[10px] uppercase tracking-widest">Role</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- SPONSOR / CULTURE - SHOWCASE   -->
+    <!-- ============================== -->
+    <section class="py-16 border-y border-brand-gold/10 bg-gradient-to-br from-brand-black via-brand-dark to-brand-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl overflow-hidden shadow-xl shadow-brand-gold/20 ring-2 ring-brand-gold/20">
+                        <img src="culture-logo.jpg" alt="Culture" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="font-display text-xl font-bold text-white">Culture • Arte Suave</h3>
+                        <p class="text-xs text-zinc-500">Patrocinador Oficial · Premium BJJ Gear</p>
+                    </div>
+                </div>
+                <a href="https://cultureartesuave.com/" target="_blank" class="flex items-center gap-2 px-6 py-3 rounded-xl btn-gold text-sm font-bold shadow-lg shadow-brand-gold/20 group">
+                    Visitar Loja
+                    <i data-lucide="shopping-bag" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Product Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <!-- Product 1 - Black Hoodie -->
+                <a href="https://cultureartesuave.com/products/classic-culture-urban-oversized" target="_blank" class="group glass-card rounded-2xl overflow-hidden border border-brand-gold/10 hover:border-brand-gold/30 transition-all">
+                    <div class="aspect-[4/3] overflow-hidden bg-brand-dark">
+                        <img src="https://cultureartesuave.com/cdn/shop/files/CF223558-FD6E-4D33-A85B-0ED9577F0A4C.jpg?v=1779063961&width=533" alt="Classic Culture Urban Oversized - Black" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-[9px] uppercase tracking-widest text-brand-gold font-bold">Novidade</span>
+                            <span class="w-1 h-1 rounded-full bg-brand-gold/40"></span>
+                            <span class="text-[9px] text-zinc-600">Oversized</span>
+                        </div>
+                        <h4 class="font-display text-sm font-bold text-white group-hover:text-brand-gold transition-colors">Classic Culture Urban</h4>
+                        <p class="text-xs text-zinc-500 mt-1">Preto · Premium</p>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="text-sm font-bold gold-text">€21,99</span>
+                            <span class="text-[10px] text-zinc-600 group-hover:text-brand-gold transition-colors flex items-center gap-1">
+                                Ver produto
+                                <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 2 - Dark Gray Hoodie -->
+                <a href="https://cultureartesuave.com/products/dark-gray" target="_blank" class="group glass-card rounded-2xl overflow-hidden border border-brand-gold/10 hover:border-brand-gold/30 transition-all">
+                    <div class="aspect-[4/3] overflow-hidden bg-brand-dark">
+                        <img src="https://cultureartesuave.com/cdn/shop/files/46CD59DE-B62E-4E50-B718-E7FEF1937A11.jpg?v=1779064278&width=533" alt="Classic Culture Urban Oversized - Dark Gray" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-[9px] uppercase tracking-widest text-zinc-600 font-bold">Best Seller</span>
+                            <span class="w-1 h-1 rounded-full bg-zinc-600"></span>
+                            <span class="text-[9px] text-zinc-600">Oversized</span>
+                        </div>
+                        <h4 class="font-display text-sm font-bold text-white group-hover:text-brand-gold transition-colors">Classic Culture Urban</h4>
+                        <p class="text-xs text-zinc-500 mt-1">Cinza Escuro · Premium</p>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="text-sm font-bold gold-text">€21,99</span>
+                            <span class="text-[10px] text-zinc-600 group-hover:text-brand-gold transition-colors flex items-center gap-1">
+                                Ver produto
+                                <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 3 - White Hoodie -->
+                <a href="https://cultureartesuave.com/products/classic-culture-urban-oversized-white" target="_blank" class="group glass-card rounded-2xl overflow-hidden border border-brand-gold/10 hover:border-brand-gold/30 transition-all">
+                    <div class="aspect-[4/3] overflow-hidden bg-brand-dark">
+                        <img src="https://cultureartesuave.com/cdn/shop/files/051F3EDC-A96A-474B-8CD2-8C7E74F59AEF.jpg?v=1779064494&width=533" alt="Classic Culture Urban Oversized - White" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-[9px] uppercase tracking-widest text-brand-gold font-bold">Destaque</span>
+                            <span class="w-1 h-1 rounded-full bg-brand-gold/40"></span>
+                            <span class="text-[9px] text-zinc-600">Oversized</span>
+                        </div>
+                        <h4 class="font-display text-sm font-bold text-white group-hover:text-brand-gold transition-colors">Classic Culture Urban</h4>
+                        <p class="text-xs text-zinc-500 mt-1">Branco · Premium</p>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="text-sm font-bold gold-text">€21,99</span>
+                            <span class="text-[10px] text-zinc-600 group-hover:text-brand-gold transition-colors flex items-center gap-1">
+                                Ver produto
+                                <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Bottom Quote -->
+            <div class="text-center mt-10">
+                <p class="text-sm text-zinc-600 italic max-w-2xl mx-auto leading-relaxed">
+                    "Vista a arte suave. Treine como um campeão."<br>
+                    <span class="text-[10px] uppercase tracking-widest text-zinc-700 not-italic">— Culture • Arte Suave — Patrocinador Oficial Daniel Marcelo</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- TRAJETÓRIA / TIMELINE          -->
+    <!-- ============================== -->
+    <section id="trajetoria" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-brand-gold">A Jornada</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mt-4 mb-6">
+                    Cada <span class="gold-text">desafio</span> forjou<br>um campeão.
+                </h2>
+                <p class="text-zinc-400 font-light text-lg leading-relaxed">
+                    Do primeiro kimono ao pódio em Madrid — a história de Daniel Marcelo é feita de 
+                    disciplina, resiliência e a busca incansável pela evolução.
+                </p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Timeline Line -->
+                <div class="absolute left-8 top-10 bottom-10 timeline-line hidden md:block"></div>
+
+                <!-- Item 1 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-16 relative">
+                    <div class="hidden md:flex w-16 shrink-0 justify-center z-10 pt-2">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl flex-1">
+                        <span class="text-xs font-bold text-brand-gold uppercase tracking-wider">2016</span>
+                        <h4 class="font-display text-xl font-bold text-white mt-2 mb-3">Primeiro Contato com o Jiu-Jitsu</h4>
+                        <p class="text-zinc-400 font-light leading-relaxed">
+                            O início de uma jornada que mudaria tudo. Nos tatames, Daniel descobriu 
+                            que o Jiu-Jitsu era muito mais que uma luta — era um estilo de vida.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-16 relative">
+                    <div class="hidden md:flex w-16 shrink-0 justify-center z-10 pt-2">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl flex-1">
+                        <span class="text-xs font-bold text-brand-gold uppercase tracking-wider">2020</span>
+                        <h4 class="font-display text-xl font-bold text-white mt-2 mb-3">Alliance Jiu-Jitsu — Ingresso na Equipe</h4>
+                        <p class="text-zinc-400 font-light leading-relaxed">
+                            Tornou-se membro da Alliance Jiu-Jitsu, uma das equipes mais respeitadas 
+                            do mundo. A partir daí, o treino de alto nível virou rotina.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-16 relative">
+                    <div class="hidden md:flex w-16 shrink-0 justify-center z-10 pt-2">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl flex-1">
+                        <span class="text-xs font-bold text-brand-gold uppercase tracking-wider">2025</span>
+                        <h4 class="font-display text-xl font-bold text-white mt-2 mb-3">Mudança para a Europa</h4>
+                        <p class="text-zinc-400 font-light leading-relaxed">
+                            Lisboa e Barcelona se tornaram sua base. A exposição a novos estilos e 
+                            atletas de elite elevou seu jogo a um novo patamar.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="flex flex-col md:flex-row gap-6 relative">
+                    <div class="hidden md:flex w-16 shrink-0 justify-center z-10 pt-2">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl flex-1 border-brand-gold/20">
+                        <span class="text-xs font-bold text-brand-gold uppercase tracking-wider">Março 2026</span>
+                        <h4 class="font-display text-xl font-bold text-white mt-2 mb-3">🥉 Madrid Open IBJJF — Pódio Internacional</h4>
+                        <p class="text-zinc-400 font-light leading-relaxed">
+                            Conquistou o 3º lugar no Madrid Internacional Open IBJJF 2026, 
+                            categoria Master 2 | Médio. Um marco que comprova: método e dedicação 
+                            geram resultados reais.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- METODOLOGIA (3 PILARES)        -->
+    <!-- ============================== -->
+    <section id="metodologia" class="py-24 bg-brand-dark/50 border-y border-brand-gold/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-brand-gold">Minha Metodologia</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mt-4 mb-6">
+                    O <span class="gold-text">Método DM</span> de<br>alta performance
+                </h2>
+                <p class="text-zinc-400 font-light text-lg leading-relaxed">
+                    Três pilares fundamentais que transformam atletas amadores em competidores de elite.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pilar 1 -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center mx-auto mb-6 shadow-lg shadow-brand-gold/20">
+                        <i data-lucide="swords" class="w-8 h-8 text-brand-black"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-4">Técnica & Tática</h3>
+                    <p class="text-zinc-400 font-light leading-relaxed text-sm">
+                        Periodização de treinos baseada em ciclos de competição. 
+                        Posicionamento, transições e finalizações refinadas com análise 
+                        de vídeo e drill progressivo.
+                    </p>
+                </div>
+
+                <!-- Pilar 2 -->
+                <div class="glass-card p-8 rounded-3xl text-center border-brand-gold/15">
+                    <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center mx-auto mb-6 shadow-lg shadow-brand-gold/20">
+                        <i data-lucide="dumbbell" class="w-8 h-8 text-brand-black"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-4">Preparo Físico</h3>
+                    <p class="text-zinc-400 font-light leading-relaxed text-sm">
+                        Treino funcional específico para Jiu-Jitsu: força explosiva, 
+                        resistência anaeróbica, mobilidade articular e prevenção de lesões. 
+                        Cada sessão pensada para o tatame.
+                    </p>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center mx-auto mb-6 shadow-lg shadow-brand-gold/20">
+                        <i data-lucide="apple" class="w-8 h-8 text-brand-black"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-4">Nutrição Inteligente</h3>
+                    <p class="text-zinc-400 font-light leading-relaxed text-sm">
+                        Plano nutricional integrado ao gasto energético dos treinos. 
+                        Protocolo de cutting para peso de competição e superávit 
+                        estratégico para ganho de massa magra.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- SERVIÇOS                        -->
+    <!-- ============================== -->
+    <section id="servicos" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-brand-gold">Serviços</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mt-4 mb-6">
+                    Sua <span class="gold-text">evolução</span> começa<br>aqui e agora.
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Serviço 1 -->
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl gold-gradient flex items-center justify-center">
+                            <i data-lucide="video" class="w-6 h-6 text-brand-black"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-bold text-white">Consultoria de Treinos</h3>
+                            <span class="text-xs text-brand-gold">Online • Individualizado</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm text-zinc-400">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
+                            <span>Periodização personalizada para competição</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
+                            <span>Análise de vídeo dos seus rolls e lutas</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
+                            <span>Drills específicos para seu estilo de jogo</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
+                            <span>Suporte direto via WhatsApp</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="glass-card p-8 rounded-3xl border-brand-gold/15">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl gold-gradient flex items-center justify-center">
+                            <i data-lucide="utensils-crossed" class="w-6 h-6 text-brand-black"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-bold text-white">Plano Nutricional Inteligente</h3>
+                            <span class="text-xs text-brand-gold">Integrado ao Treino</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm text-zinc-400">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
+                            <span>Cálculo calórico baseado no gasto energético real</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
+                            <span>Protocolo de cutting para peso de competição</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
+                            <span>Macros ajustados por fase de treino</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
+                            <span>Cardápio flexível com substituições</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Combo -->
+            <div class="glass-card p-8 rounded-3xl max-w-5xl mx-auto mt-8 border-brand-gold/20 gold-glow text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-xs font-bold uppercase tracking-wider mb-4">
+                    <i data-lucide="zap" class="w-3 h-3"></i>
+                    Mais escolhido
+                </div>
+                <h3 class="font-display text-2xl font-bold text-white mb-2">Completo: Treino + Nutrição</h3>
+                <p class="text-zinc-400 text-sm max-w-lg mx-auto">
+                    A combinação dos dois serviços com desconto especial. 
+                    Método integrado para resultados máximos.
+                </p>
+                <a href="#planos" class="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-xl btn-gold text-sm font-bold">
+                    Ver Planos
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- SIMULADOR NUTRICIONAL          -->
+    <!-- ============================== -->
+    <section id="simulador" class="py-24 bg-brand-dark/30 border-y border-brand-gold/10" x-data="{
+        step: 1,
+        objetivo: '',
+        peso: 75,
+        frequencia: 3,
+        nome: '',
+        genero: 'masculino',
+        showResult: false,
+        calorias: 0,
+        proteina: 0,
+        divisao: '',
+        calcular() {
+            let tmb = this.genero === 'masculino' 
+                ? 10 * this.peso + 6.25 * 175 - 5 * 30 + 5
+                : 10 * this.peso + 6.25 * 165 - 5 * 30 - 161;
+            let fatores = { 3: 1.55, 4: 1.725, 6: 1.9 };
+            let get = tmb * fatores[this.frequencia];
+            if (this.objetivo === 'loss') get -= 400;
+            else if (this.objetivo === 'gain') get += 350;
+            this.calorias = Math.round(get);
+            this.proteina = this.objetivo === 'gain' ? 2.2 : this.objetivo === 'loss' ? 2.0 : 1.8;
+            const divisoes = { 3: 'Full Body 3x', 4: 'Upper/Lower 4x', 6: 'PPL 6x' };
+            this.divisao = divisoes[this.frequencia];
+            this.showResult = true;
+        }
+    }">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs uppercase tracking-widest font-bold text-brand-gold">Simulador</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight mt-4 mb-4">
+                    Simule seu <span class="gold-text">protocolo</span>
+                </h2>
+                <p class="text-zinc-400 font-light text-sm">
+                    Descubra suas calorias ideais, divisão de treino e meta de proteína 
+                    em segundos.
+                </p>
+            </div>
+
+            <div class="glass-card p-8 md:p-10 rounded-3xl border-brand-gold/15">
+                <!-- Step 1: Objetivo -->
+                <div x-show="step === 1 && !showResult" x-transition class="space-y-6">
+                    <h3 class="font-display text-xl font-bold text-white mb-6">Qual seu objetivo principal?</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <button @click="objetivo = 'loss'; step = 2" :class="objetivo === 'loss' ? 'border-brand-gold bg-brand-gold/10' : 'border-brand-gold/20 hover:border-brand-gold/40'" class="glass-card p-6 rounded-2xl text-center border transition-all">
+                            <i data-lucide="trending-down" class="w-8 h-8 text-brand-gold mx-auto mb-2"></i>
+                            <span class="block text-sm font-bold text-white">Perda de Peso</span>
+                            <span class="text-xs text-zinc-500">Cutting / Definição</span>
+                        </button>
+                        <button @click="objetivo = 'gain'; step = 2" :class="objetivo === 'gain' ? 'border-brand-gold bg-brand-gold/10' : 'border-brand-gold/20 hover:border-brand-gold/40'" class="glass-card p-6 rounded-2xl text-center border transition-all">
+                            <i data-lucide="trending-up" class="w-8 h-8 text-brand-gold mx-auto mb-2"></i>
+                            <span class="block text-sm font-bold text-white">Ganho de Massa</span>
+                            <span class="text-xs text-zinc-500">Hipertrofia / Bulk</span>
+                        </button>
+                        <button @click="objetivo = 'performance'; step = 2" :class="objetivo === 'performance' ? 'border-brand-gold bg-brand-gold/10' : 'border-brand-gold/20 hover:border-brand-gold/40'" class="glass-card p-6 rounded-2xl text-center border transition-all">
+                            <i data-lucide="zap" class="w-8 h-8 text-brand-gold mx-auto mb-2"></i>
+                            <span class="block text-sm font-bold text-white">Performance</span>
+                            <span class="text-xs text-zinc-500">Jiu-Jitsu / Esporte</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Dados -->
+                <div x-show="step === 2 && !showResult" x-transition x-cloak class="space-y-6">
+                    <h3 class="font-display text-xl font-bold text-white mb-6">Seus dados</h3>
+                    
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-zinc-400 font-bold mb-2">Peso (kg): <span class="text-brand-gold" x-text="peso"></span>kg</label>
+                        <input type="range" x-model="peso" min="50" max="150" class="w-full accent-brand-gold">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-zinc-400 font-bold mb-2">Treinos por semana</label>
+                        <div class="grid grid-cols-3 gap-4">
+                            <button @click="frequencia = 3" :class="frequencia === 3 ? 'border-brand-gold bg-brand-gold/10' : 'border-brand-gold/20'" class="glass-card p-4 rounded-xl text-center border transition-all">
+                                <span class="block text-lg font-bold text-white">3x</span>
+                                <span class="text-xs text-zinc-500">Iniciante</span>
+                            </button>
+                            <button @click="frequencia = 4" :class="frequencia === 4 ? 'border-brand-gold bg-brand-gold/10' : 'border-brand-gold/20'" class="glass-card p-4 rounded-xl text-center border transition-all">
+                                <span class="block text-lg font-bold text-white">4x</span>
+                                <span class="text-xs text-zinc-500">Intermediário</span>
+                            </button>
+                            <button @click="frequencia = 6" :class="frequencia === 6 ? 'border-brand-gold bg-brand-gold/10' : 'border-brand-gold/20'" class="glass-card p-4 rounded-xl text-center border transition-all">
+                                <span class="block text-lg font-bold text-white">6x</span>
+                                <span class="text-xs text-zinc-500">Avançado</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 pt-4">
+                        <button @click="step = 1" class="px-6 py-3 rounded-xl border border-brand-gold/20 text-zinc-300 hover:bg-brand-card font-semibold transition-all text-sm">
+                            Voltar
+                        </button>
+                        <button @click="calcular()" class="px-6 py-3 rounded-xl btn-gold text-sm font-bold flex items-center gap-2">
+                            Calcular Protocolo
+                            <i data-lucide="calculator" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Result -->
+                <div x-show="showResult" x-transition x-cloak class="space-y-6">
+                    <div class="flex items-center gap-3 border-b border-brand-gold/10 pb-4">
+                        <div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center">
+                            <i data-lucide="award" class="w-5 h-5 text-brand-black"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-bold text-white">Seu Protocolo DM</h3>
+                            <span class="text-xs text-brand-gold uppercase tracking-wider">Baseado em: <span x-text="objetivo === 'loss' ? 'Perda de Peso' : objetivo === 'gain' ? 'Ganho de Massa' : 'Performance'"></span></span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <span class="text-xs uppercase tracking-wider text-zinc-500 font-bold">Calorias</span>
+                            <div class="text-3xl font-bold gold-text font-display mt-2" x-text="calorias"></div>
+                            <span class="text-xs text-zinc-500">kcal/dia</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <span class="text-xs uppercase tracking-wider text-zinc-500 font-bold">Proteína</span>
+                            <div class="text-3xl font-bold gold-text font-display mt-2" x-text="Math.round(proteina * peso)"></div>
+                            <span class="text-xs text-zinc-500">g/dia ( <span x-text="proteina"></span>g/kg )</span>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <span class="text-xs uppercase tracking-wider text-zinc-500 font-bold">Treino</span>
+                            <div class="text-lg font-bold gold-text font-display mt-2" x-text="divisao"></div>
+                            <span class="text-xs text-zinc-500"><span x-text="frequencia"></span>x/semana</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border-brand-gold/10 text-center">
+                        <p class="text-sm text-zinc-400 mb-4">Este é seu protocolo preliminar. Para um plano completo e individualizado:</p>
+                        <a href="https://wa.me/5500000000000?text=Ol%C3%A1%20Daniel!%20Quero%20o%20protocolo%20completo%20baseado%20no%20simulador" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl btn-gold text-sm font-bold">
+                            Quero o Protocolo Completo
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <button @click="showResult = false; step = 1; objetivo = ''" class="text-xs text-zinc-500 hover:text-brand-gold transition-colors underline">
+                        Refazer simulação
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- SOBRE O COACH                   -->
+    <!-- ============================== -->
+    <section id="sobre" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image -->
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden border border-brand-gold/20 shadow-2xl gold-glow">
+                        <img src="daniel-podium.jpg" alt="Daniel Marcelo - Madrid Open IBJJF 2026" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 glass-card p-6 rounded-2xl border-brand-gold/20 shadow-xl max-w-[200px]">
+                        <div class="text-3xl font-bold gold-text font-display">🥉</div>
+                        <div class="text-sm font-bold text-white mt-1">Madrid Open</div>
+                        <div class="text-[10px] text-zinc-500">IBJJF 2026 · Master 2 Médio</div>
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div class="space-y-6">
+                    <span class="text-xs uppercase tracking-widest font-bold text-brand-gold">Sobre o Coach</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">
+                        Daniel Marcelo<br>
+                        <span class="gold-text text-2xl font-light">@dan.jiujitsu</span>
+                    </h2>
+                    <p class="text-zinc-400 font-light leading-relaxed">
+                        Atleta Alliance Jiu-Jitsu, coach e competidor. Represento a 
+                        <strong class="text-zinc-200">Culture • Arte Suave</strong> como atleta patrocinado, 
+                        levando a arte suave aos mais altos níveis do cenário europeu.
+                    </p>
+                    <p class="text-zinc-400 font-light leading-relaxed">
+                        Minha missão é ajudar atletas — do iniciante ao competidor — a 
+                        alcançarem seu melhor desempenho através de um método integrado 
+                        de treino, nutrição e mentalidade vencedora.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="https://www.instagram.com/dan.jiujitsu/" target="_blank" class="flex items-center gap-2 text-sm text-zinc-400 hover:text-brand-gold transition-colors">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                            @dan.jiujitsu
+                        </a>
+                        <a href="https://cultureartesuave.com/" target="_blank" class="flex items-center gap-2 text-sm text-zinc-400 hover:text-brand-gold transition-colors group">
+                            <span class="w-5 h-5 rounded overflow-hidden group-hover:scale-105 transition-transform ring-1 ring-brand-gold/20">
+                            <img src="culture-logo.jpg" alt="Culture" class="w-full h-full object-cover">
+                        </span>
+                            Culture • Arte Suave
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- DEPOIMENTOS / SOCIAL PROOF     -->
+    <!-- ============================== -->
+    <section id="depoimentos" class="py-24 bg-brand-dark/30 border-y border-brand-gold/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-brand-gold">Resultados Reais</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mt-4 mb-6">
+                    O que dizem sobre<br><span class="gold-text">meu trabalho</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Depoimento 1 -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="flex items-center gap-1 text-brand-gold mb-3">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-sm text-zinc-300 leading-relaxed mb-4">
+                        "O Daniel transformou minha preparação. A periodização de treino 
+                        aliada ao plano nutricional fez eu me sentir no meu melhor peso 
+                        pra competir. Resultado: pódio na minha primeira competição!"
+                    </p>
+                    <div class="text-xs">
+                        <span class="font-bold text-white">— Patrick C.</span>
+                        <span class="text-zinc-500"> · Aluno Alliance</span>
+                    </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="glass-card p-6 rounded-2xl border-brand-gold/15">
+                    <div class="flex items-center gap-1 text-brand-gold mb-3">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-sm text-zinc-300 leading-relaxed mb-4">
+                        "Comecei o Jiu-Jitsu do zero com a consultoria do Daniel. 
+                        Em 6 meses já estava competindo. A paciência e a didática 
+                        dele são fora do comum."
+                    </p>
+                    <div class="text-xs">
+                        <span class="font-bold text-white">— Vicente M.</span>
+                        <span class="text-zinc-500"> · Aluno Online</span>
+                    </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="flex items-center gap-1 text-brand-gold mb-3">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-sm text-zinc-300 leading-relaxed mb-4">
+                        "O plano nutricional mudou minha relação com a comida. 
+                        Consegui bater o peso sem sofrimento e ainda tive mais energia 
+                        nos treinos. Sensacional!"
+                    </p>
+                    <div class="text-xs">
+                        <span class="font-bold text-white">— Thaís B.</span>
+                        <span class="text-zinc-500"> · Atleta BJJ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- PLANOS                          -->
+    <!-- ============================== -->
+    <section id="planos" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-brand-gold">Investimento</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mt-4 mb-6">
+                    Escolha seu <span class="gold-text">plano</span>
+                </h2>
+                <p class="text-zinc-400 font-light">Invista em você. Resultados reais começam com decisões reais.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Plano 1: Consultoria Treino -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs uppercase tracking-wider text-zinc-500 font-bold mb-2">Consultoria</div>
+                        <h3 class="font-display text-xl font-bold text-white mb-4">Treino Elite</h3>
+                        <p class="text-zinc-400 text-sm font-light mb-6">Periodização completa + análise de vídeo + suporte direto.</p>
+                        <div class="mb-8">
+                            <span class="text-4xl font-bold text-white font-display">R$149</span>
+                            <span class="text-zinc-500">/mês</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-zinc-400 border-t border-brand-gold/10 pt-6 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Periodização personalizada</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Análise de vídeo de rolls</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Drills específicos</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Suporte WhatsApp</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5500000000000?text=Quero%20o%20plano%20Treino%20Elite%20-%20R%24149/m%C3%AAs" class="w-full text-center py-3.5 rounded-xl btn-outline-gold text-sm font-bold transition-all">
+                        Quero Este Plano
+                    </a>
+                </div>
+
+                <!-- Plano 2: Completo (Destaque) -->
+                <div class="glass-card p-8 rounded-3xl border-brand-gold/30 gold-glow flex flex-col justify-between relative scale-105">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-gold text-brand-black text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full">
+                        Mais Popular
+                    </div>
+                    <div>
+                        <div class="text-xs uppercase tracking-wider text-brand-gold font-bold mb-2">Completo</div>
+                        <h3 class="font-display text-xl font-bold text-white mb-4">Treino + Nutrição</h3>
+                        <p class="text-zinc-400 text-sm font-light mb-6">O pacote completo. Treino periodizado + plano nutricional integrado.</p>
+                        <div class="mb-8">
+                            <span class="text-4xl font-bold text-white font-display">R$249</span>
+                            <span class="text-zinc-500">/mês</span>
+                            <div class="text-[10px] text-brand-gold font-bold mt-1">Economia de R$49/mês</div>
+                        </div>
+                        <ul class="space-y-3 text-sm text-zinc-400 border-t border-brand-gold/10 pt-6 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Tudo do Treino Elite</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Plano nutricional inteligente</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Protocolo de cutting/bulk</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Ajustes mensais ilimitados</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Acesso prioritário</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5500000000000?text=Quero%20o%20plano%20Completo%20Treino%20%2B%20Nutri%C3%A7%C3%A3o%20-%20R%24249/m%C3%AAs" class="w-full text-center py-3.5 rounded-xl btn-gold text-sm font-bold shadow-lg shadow-brand-gold/20">
+                        Quero Este Plano
+                    </a>
+                </div>
+
+                <!-- Plano 3: Nutrição -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs uppercase tracking-wider text-zinc-500 font-bold mb-2">Nutrição</div>
+                        <h3 class="font-display text-xl font-bold text-white mb-4">Nutrição Inteligente</h3>
+                        <p class="text-zinc-400 text-sm font-light mb-6">Plano alimentar individualizado com foco em performance atlética.</p>
+                        <div class="mb-8">
+                            <span class="text-4xl font-bold text-white font-display">R$149</span>
+                            <span class="text-zinc-500">/mês</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-zinc-400 border-t border-brand-gold/10 pt-6 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Plano alimentar personalizado</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Cálculo calórico preciso</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Macros para competição</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold shrink-0"></i>Cardápio flexível</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5500000000000?text=Quero%20o%20plano%20Nutri%C3%A7%C3%A3o%20Inteligente%20-%20R%24149/m%C3%AAs" class="w-full text-center py-3.5 rounded-xl btn-outline-gold text-sm font-bold transition-all">
+                        Quero Este Plano
+                    </a>
+                </div>
+            </div>
+
+            <!-- Trimestral option -->
+            <div class="text-center mt-12">
+                <p class="text-sm text-zinc-500">
+                    🔥 Pagamento trimestral: <span class="text-brand-gold font-bold">R$399</span> (3 meses) — 
+                    economia de <span class="text-brand-gold font-bold">R$348</span> no plano Completo!
+                </p>
+                <a href="https://wa.me/5500000000000?text=Quero%20o%20plano%20Trimestral%20Completo%20-%20R%24399" class="inline-flex items-center gap-2 mt-4 text-sm text-brand-gold hover:underline font-bold">
+                    Consultar Plano Trimestral
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FAQ                             -->
+    <!-- ============================== -->
+    <section id="faq" class="py-24 bg-brand-dark/30 border-y border-brand-gold/10" x-data="{ active: null }">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-brand-gold">FAQ</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight mt-4 mb-4">Dúvidas Frequentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-card rounded-2xl overflow-hidden border border-brand-gold/10">
+                    <button @click="active = active === 1 ? null : 1" class="w-full text-left px-6 py-5 flex items-center justify-between font-semibold text-white focus:outline-none">
+                        <span class="text-sm">Preciso ser competidor para contratar?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-brand-gold transform transition-transform" :class="active === 1 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="active === 1" x-transition x-cloak class="px-6 pb-6 text-sm text-zinc-400 font-light border-t border-brand-gold/10 pt-4 leading-relaxed">
+                        Não! Meu método é adaptado para todos os níveis — do iniciante ao atleta avançado. 
+                        O que muda é a intensidade e o foco de cada programa.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden border border-brand-gold/10">
+                    <button @click="active = active === 2 ? null : 2" class="w-full text-left px-6 py-5 flex items-center justify-between font-semibold text-white focus:outline-none">
+                        <span class="text-sm">Como funciona a consultoria online?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-brand-gold transform transition-transform" :class="active === 2 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="active === 2" x-transition x-cloak class="px-6 pb-6 text-sm text-zinc-400 font-light border-t border-brand-gold/10 pt-4 leading-relaxed">
+                        Tudo pelo WhatsApp e análise de vídeo. Você envia seus rolls/treinos, 
+                        eu analiso e devolvo com correções, drills e periodização personalizada.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden border border-brand-gold/10">
+                    <button @click="active = active === 3 ? null : 3" class="w-full text-left px-6 py-5 flex items-center justify-between font-semibold text-white focus:outline-none">
+                        <span class="text-sm">O plano nutricional considera restrições alimentares?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-brand-gold transform transition-transform" :class="active === 3 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="active === 3" x-transition x-cloak class="px-6 pb-6 text-sm text-zinc-400 font-light border-t border-brand-gold/10 pt-4 leading-relaxed">
+                        Sim. O plano é 100% adaptado às suas preferências, restrições e objetivos. 
+                        Nada de dietas genéricas — tudo é pensado para a sua realidade.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden border border-brand-gold/10">
+                    <button @click="active = active === 4 ? null : 4" class="w-full text-left px-6 py-5 flex items-center justify-between font-semibold text-white focus:outline-none">
+                        <span class="text-sm">Quanto tempo leva para ver resultados?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-brand-gold transform transition-transform" :class="active === 4 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="active === 4" x-transition x-cloak class="px-6 pb-6 text-sm text-zinc-400 font-light border-t border-brand-gold/10 pt-4 leading-relaxed">
+                        Com dedicação consistente, os primeiros resultados aparecem em 4-6 semanas. 
+                        Mas cada corpo responde de um jeito — o importante é manter a disciplina.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FINAL CTA                       -->
+    <!-- ============================== -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-gold/5 to-transparent pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <div class="glass-card p-12 rounded-3xl border-brand-gold/20 gold-glow">
+                <span class="text-xs uppercase tracking-widest font-bold text-brand-gold">Pronto Para Evoluir?</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mt-4 mb-6">
+                    Sua jornada de <span class="gold-text">elite</span><br>começa agora.
+                </h2>
+                <p class="text-zinc-400 font-light text-lg max-w-lg mx-auto mb-8">
+                    Não espere o momento perfeito. Crie-o. 
+                    Vamos juntos construir sua melhor versão nos tatames e na vida.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://wa.me/5500000000000?text=Quero%20come%C3%A7ar%20minha%20transforma%C3%A7%C3%A3o%20com%20Daniel%20Marcelo" class="w-full sm:w-auto px-8 py-4 rounded-2xl btn-gold text-sm font-bold flex items-center justify-center gap-2 shadow-xl shadow-brand-gold/20">
+                        <i data-lucide="whatsapp" class="w-5 h-5"></i>
+                        Fale Comigo no WhatsApp
+                    </a>
+                    <a href="https://www.instagram.com/dan.jiujitsu/" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-2xl glass hover:bg-brand-card text-zinc-300 font-semibold transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                        Acompanhe @dan.jiujitsu
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FOOTER                          -->
+    <!-- ============================== -->
+    <footer class="glass border-t border-brand-gold/10 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center">
+                        <span class="text-brand-black text-sm font-display font-bold">DM</span>
+                    </div>
+                    <div>
+                        <span class="font-display text-base font-bold gold-text">Daniel Marcelo</span>
+                        <span class="block text-[8px] uppercase tracking-widest text-zinc-500">Jiu-Jitsu Elite</span>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div class="flex flex-wrap items-center gap-6 text-xs text-zinc-500">
+                    <a href="#trajetoria" class="hover:text-brand-gold transition-colors">Trajetória</a>
+                    <a href="#metodologia" class="hover:text-brand-gold transition-colors">Metodologia</a>
+                    <a href="#servicos" class="hover:text-brand-gold transition-colors">Serviços</a>
+                    <a href="#planos" class="hover:text-brand-gold transition-colors">Planos</a>
+                    <a href="#faq" class="hover:text-brand-gold transition-colors">FAQ</a>
+                </div>
+
+                <!-- Social -->
+                <div class="flex items-center gap-4">
+                    <a href="https://www.instagram.com/dan.jiujitsu/" target="_blank" class="text-zinc-500 hover:text-brand-gold transition-colors">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://cultureartesuave.com/" target="_blank" class="text-zinc-500 hover:text-brand-gold transition-colors flex items-center gap-1 text-xs group">
+                        <span class="w-4 h-4 rounded overflow-hidden ring-1 ring-brand-gold/20 group-hover:scale-105 transition-transform">
+                            <img src="culture-logo.jpg" alt="Culture" class="w-full h-full object-cover">
+                        </span>
+                        Culture
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-brand-gold/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-zinc-600">
+                <p>&copy; 2026 Daniel Marcelo — Todos os direitos reservados.</p>
+                <p class="text-center flex items-center gap-2">
+                    <span>Patrocinado por</span>
+                    <a href="https://cultureartesuave.com/" target="_blank" class="inline-flex items-center gap-1.5 text-brand-gold hover:text-brand-gold-light transition-colors font-bold group">
+                        <span class="w-4 h-4 rounded overflow-hidden ring-1 ring-brand-gold/20 group-hover:scale-110 transition-transform">
+                            <img src="culture-logo.jpg" alt="Culture" class="w-full h-full object-cover">
+                        </span>
+                        Culture • Arte Suave
+                    </a>
+                    <span class="text-zinc-700">·</span>
+                    <span>Feito com <span class="text-brand-gold">♥</span> para a arte suave</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
